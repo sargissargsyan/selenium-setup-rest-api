@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+/src/main/resources/drivers/
+/target/
+/selenium-test-setup-rest-api.iml
