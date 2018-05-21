@@ -23,18 +23,18 @@ public class HttpClient {
 	public static JsonParser parser = new JsonParser();
 
 	public static String login(String username, String password) {
+		Response response;
+		String responseJson;
 		OkHttpClient client = new OkHttpClient();
 
 		MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-		RequestBody body = RequestBody.create(mediaType, "username=" + username + "&password=" + password + "&type=normal");
+		RequestBody body = RequestBody.create(mediaType, "username=" + username +
+			"&password=" + password + "&type=normal");
 		Request request = new Request.Builder()
 			.url(BASE_URL + "/auth")
 			.post(body)
 			.addHeader("Content-Type", "application/x-www-form-urlencoded")
 			.build();
-
-		Response response = null;
-		String responseJson = null;
 
 		try {
 			response = client.newCall(request).execute();

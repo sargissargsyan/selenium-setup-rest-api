@@ -42,6 +42,7 @@ public class ProjectPage extends BaseObjectPage<ProjectPage> {
 	public String getPageUrl() {
 		return "/project/" + USERNAME + "-" + name.replace(" ", "-").toLowerCase();
 	}
+
 	public ProjectPage open() {
 		return new ProjectPage(project).openPage(ProjectPage.class);
 	}
@@ -55,7 +56,6 @@ public class ProjectPage extends BaseObjectPage<ProjectPage> {
 	}
 
 	public void clickTimeline() {
-//		waitForElement(getDriver().findElement(By.cssSelector("#nav-timeline a"))).click();
 		waitForElement(navTimelineIcon).click();
 		PageLoadHelper.isLoaded().waitForPageLoaded();
 	}

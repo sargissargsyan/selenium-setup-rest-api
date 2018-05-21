@@ -50,11 +50,6 @@ public class ApiHelper {
 	}
 
 	public static void deleteProject(JsonObject project) {
-		HashMap projectMap = new HashMap();
-		projectMap.put("is_private", false);
-		projectMap.put("creation_template", 1);
-		projectMap.put(	"name", randomString(5));
-		projectMap.put(	"description", randomString(20));
 		HttpClient.delete("/projects/" + project.get("id").getAsString());
 	}
 
