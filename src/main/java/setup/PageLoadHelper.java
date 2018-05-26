@@ -51,7 +51,8 @@ public class PageLoadHelper {
     }
 
     public void waitForPageLoaded() {
-        ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+        ExpectedCondition<Boolean> expectation = driver ->
+            ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
         try {
             Thread.sleep(1000);
             WebDriverWait wait = new WebDriverWait(getDriver(), 30);
