@@ -40,6 +40,7 @@ public class LoginPage extends BaseObjectPage<LoginPage> {
 
 	public HomePage clickSubmit() {
 		submitButton.click();
+		PageLoadHelper.isLoaded().isElementIsInvisible( By.cssSelector(".loading-bar"));
 		return new HomePage();
 	}
 

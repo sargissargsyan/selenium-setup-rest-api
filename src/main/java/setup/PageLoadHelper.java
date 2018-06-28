@@ -41,6 +41,16 @@ public class PageLoadHelper {
         }
     }
 
+    public PageLoadHelper isElementIsInvisible(By by) {
+        try {
+            new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOfElementLocated(by));
+            new WebDriverWait(getDriver(), 10).until(ExpectedConditions.invisibilityOfElementLocated(by));
+            return this;
+        } catch (WebDriverException e) {
+            throw new Error("Element is not visible");
+        }
+    }
+
     public PageLoadHelper isElementIsVisible(WebElement element) {
         try {
             new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(element));
